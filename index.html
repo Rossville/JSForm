@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multi Step Form</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <div class="form-container flex">
+            <div class="form-left-area">
+                <ul class="list-container">
+                    <li class="flex">
+                        <div class="circle-outlined">
+                            <div class="circle-solid"></div>
+                        </div>
+                        <span><p>Personal Info</p></span>
+                    </li>
+                    <li class="flex">
+                        <div class="circle-outlined">
+                            <div class="circle-solid"></div>
+                        </div>
+                        <span><p>Contact Info</p></span>
+                    </li>
+                    <li class="flex">
+                        <div class="circle-outlined">
+                            <div class="circle-solid"></div>
+                        </div>
+                        <span><p>Review & Submit</p></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="form-right-area">
+                <div class="hidden">
+                    <button class="hide-btn">back</button>
+                </div>
+                <div class="sub-container">
+                    <form class="form flex-col">
+                        <div class="field-name">
+                            <label for="name">
+                                <input type="text" placeholder="Name">
+                            </label>
+                        </div>
+                        <div class="field-DOB">
+                            <label for="date_of_birth">
+                                <input type="date">
+                            </label>
+                        </div>
+                        <div class="field-gender">
+                            <label for="gender">
+                                <select>
+                                    <option value="gender">gender</option>
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+                                </select>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="next">
+                    <button class="next-btn">Next</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

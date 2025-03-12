@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-container{
+    border: 1px solid black;
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 10rem;
+    padding: 2rem 1rem;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-left-area, .form-right-area{
+    width: 50%;
+}
+
+.form-right-area{
+    position: relative;
+}
+
+.form-right-area .sub-container{
+    text-align: center;
+}
+
+/* hidden button */
+
+.hidden{
+    position: absolute;
+    left: 10px;
+}
+
+
+.form{
+    padding: 2rem;
+}
+
+input,select{
+    outline: none;
+    border: none;
+}
+
+.field-name,.field-DOB,.field-gender{
+    border: 1px solid black;
+    width: 12rem;
+    margin: 0.6rem auto;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* next button */
+
+.next{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.list-container .flex{
+    margin: 2rem 0;
+    margin-left: 5rem;
+}
+
+
+.list-container .flex p{
+    margin: 0.4rem;
+}
+
+
+.circle-outlined{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    border: 2px solid red;
+    position: relative;
+    cursor: pointer;
+}
+
+.circle-solid{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    background-color: tomato;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+
+.active{
+    display: block;
+}
+
+.unactive{
+    display: none;
+}
