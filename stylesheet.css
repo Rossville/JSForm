@@ -34,14 +34,6 @@
     text-align: center;
 }
 
-/* hidden button */
-
-.hidden{
-    position: absolute;
-    left: 10px;
-}
-
-
 .form{
     padding: 2rem;
 }
@@ -59,13 +51,19 @@ input,select{
     padding: 5px;
 }
 
-/* next button */
+/* buttons */
 
-.next{
+.next,.submit{
     position: absolute;
     right: 10px;
     cursor: pointer;
 }
+
+.back-btn-container{
+    position: absolute;
+    left: 10px;
+}
+
 
 .list-container .flex{
     margin: 2rem 0;
@@ -93,7 +91,7 @@ input,select{
     border-radius: 100%;
     background-color: tomato;
     position: absolute;
-    left: 2px;
+    left: 2.5px;
     top: 2px;
 }
 
@@ -103,4 +101,29 @@ input,select{
 
 .unactive{
     display: none;
+}
+
+.contact-info div{
+    margin: 1rem 0;
+}
+
+.contact-info input{
+    width: 80%;
+    padding: 0.6rem;
+    border: 1px solid black;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+
+.review-subcontainer{
+    width: 80%;
+    margin: auto;
+}
+
+.review-subcontainer div{
+    margin: 0.6rem  0;
+    text-align: start;
 }

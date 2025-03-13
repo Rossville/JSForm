@@ -17,47 +17,91 @@
                     </li>
                     <li class="flex">
                         <div class="circle-outlined">
-                            <div class="circle-solid"></div>
+                            <div class="circle-solid unactive"></div>
                         </div>
                         <span><p>Contact Info</p></span>
                     </li>
                     <li class="flex">
                         <div class="circle-outlined">
-                            <div class="circle-solid"></div>
+                            <div class="circle-solid unactive"></div>
                         </div>
                         <span><p>Review & Submit</p></span>
                     </li>
                 </ul>
             </div>
             <div class="form-right-area">
-                <div class="hidden">
-                    <button class="hide-btn">back</button>
+                <div class="back-btn-container">
+                    <button class="back-btn">back</button>
                 </div>
                 <div class="sub-container">
                     <form class="form flex-col">
-                        <div class="field-name">
-                            <label for="name">
-                                <input type="text" placeholder="Name">
-                            </label>
+                        <div class="data-container personal-info">
+                            <div class="field-name">
+                                <label for="name">
+                                    <input type="text" placeholder="Name">
+                                </label>
+                            </div>
+                            <div class="field-DOB">
+                                <label for="date_of_birth">
+                                    <input type="date">
+                                </label>
+                            </div>
+                            <div class="field-gender">
+                                <label for="gender">
+                                    <select>
+                                        <option value="gender">gender</option>
+                                        <option value="male">male</option>
+                                        <option value="female">female</option>
+                                    </select>
+                                </label>
+                            </div>
                         </div>
-                        <div class="field-DOB">
-                            <label for="date_of_birth">
-                                <input type="date">
-                            </label>
+                        <div class="data-container contact-info unactive">
+                            <div class="field-ph-no">
+                                <label for="ph-no">
+                                    <input type="number" placeholder="Phone Number">
+                                </label>
+                            </div>
+                            <div class="field-addr">
+                                <label for="addr">
+                                   <input type="text" placeholder="Address">
+                                </label>
+                            </div>
+                            <div class="field-emailAddr">
+                                <label for="emailAddr">
+                                    <input type="email" placeholder="Email">
+                                </label>
+                            </div>
                         </div>
-                        <div class="field-gender">
-                            <label for="gender">
-                                <select>
-                                    <option value="gender">gender</option>
-                                    <option value="male">male</option>
-                                    <option value="female">female</option>
-                                </select>
-                            </label>
+                        <div class="data-container review-info unactive">
+                            <div class="review-subcontainer">
+                                <div class="review-name">
+                                    <p>Name : </p>
+                                </div>
+                                <div class="review-DOB">
+                                    <p>Date of Birth : </p>
+                                </div>
+                                <div class="review-gender">
+                                    <p>Gender : </p>
+                                </div>
+                                <div class="review-phno">
+                                    <p>Phone Number : </p>
+                                </div>
+                                <div class="review-Addr">
+                                    <p>Address : </p>
+                                </div>
+                                <div class="email-Addr">
+                                    <p>Email : </p>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
                 <div class="next">
                     <button class="next-btn">Next</button>
+                </div>
+                <div class="submit unactive">
+                    <button class="submit-btn">Submit</button>
                 </div>
             </div>
         </div>
