@@ -1,5 +1,5 @@
 var next_btn = document.getElementsByClassName('next-btn')[0];
-var circle_outlined_btn = document.getElementsByClassName('circle-outlined');
+var circle_outlined = document.getElementsByClassName('circle-outlined');
 var circle_solid = document.getElementsByClassName('circle-solid');
 var data_container = document.getElementsByClassName('data-container');
 var back_btn = document.getElementsByClassName('back-btn')[0];
@@ -16,6 +16,7 @@ function buttonChanges(curr_page) {
         submit_btn_container.classList.remove('unactive');
         circle_solid[2].classList.remove('unactive');
         highlight_txt[2].style.color = 'tomato';
+        circle_outlined[2].style.borderColor = 'tomato';
     }
     else {
         // when curr_page = 0 or 1
@@ -23,24 +24,29 @@ function buttonChanges(curr_page) {
         submit_btn_container.classList.add('unactive');
         circle_solid[2].classList.add('unactive');
         highlight_txt[2].style.color = 'black';
+        circle_outlined[2].style.borderColor = 'black';
     }
     if (curr_page === 0) {
         back_btn_container.classList.add('unactive');
         circle_solid[0].classList.remove('unactive');
         highlight_txt[0].style.color = 'tomato';
+        circle_outlined[0].style.borderColor = 'tomato';
     }
     else {
         back_btn_container.classList.remove('unactive');
         circle_solid[0].classList.add('unactive');
         highlight_txt[0].style.color = 'black';
+        circle_outlined[0].style.borderColor = 'black';
     }
     if (curr_page === 1) {
         circle_solid[1].classList.remove('unactive');
         highlight_txt[1].style.color = 'tomato';
+        circle_outlined[1].style.borderColor = 'tomato';
     }
     else {
         circle_solid[1].classList.add('unactive');
         highlight_txt[1].style.color = 'black';
+        circle_outlined[1].style.borderColor = 'black';
     }
 }
 next_btn.addEventListener('click', function () {

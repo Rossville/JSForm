@@ -97,8 +97,12 @@
     width: 2rem;
     height: 2rem;
     border-radius: 100%;
-    border: 2px solid red;
+    border: 2px solid black;
     position: relative;
+}
+
+.list-container .flex:nth-child(1) .circle-outlined{
+    border-color: tomato;
 }
 
 .circle-solid{
