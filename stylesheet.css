@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', 'sans-serif';
 }
 
 .form-container{
@@ -11,6 +14,7 @@
     margin: auto;
     margin-top: 10rem;
     padding: 2rem 1rem;
+    height: 60vh;
 }
 
 .flex{
@@ -20,6 +24,10 @@
 .flex-col{
     display: flex;
     flex-direction: column;
+}
+
+.form-left-area{
+    border-right: 1px solid black;
 }
 
 .form-left-area, .form-right-area{
@@ -38,24 +46,14 @@
     padding: 2rem;
 }
 
-input,select{
-    outline: none;
-    border: none;
-}
 
-.field-name,.field-DOB,.field-gender{
-    border: 1px solid black;
-    width: 12rem;
-    margin: 0.6rem auto;
-    border-radius: 10px;
-    padding: 5px;
-}
 
 /* buttons */
 
 .next-btn-container,.submit-btn-container{
     position: absolute;
     right: 10px;
+    bottom: 0px;
     cursor: pointer;
 }
 
@@ -64,10 +62,29 @@ input,select{
     left: 10px;
 }
 
+.back-btn{
+    background: none;
+    padding: 1px 2px;
+    border: 1px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.next-btn,.submit-btn{
+    background: tomato;
+    border-radius: 5px;
+    padding: 6px 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.list-container{
+    margin-left: 3rem;
+}
 
 .list-container .flex{
     margin: 2rem 0;
-    margin-left: 5rem;
 }
 
 
@@ -82,7 +99,6 @@ input,select{
     border-radius: 100%;
     border: 2px solid red;
     position: relative;
-    cursor: pointer;
 }
 
 .circle-solid{
@@ -103,14 +119,15 @@ input,select{
     display: none;
 }
 
-.contact-info div{
+.contact-info div, .personal-info div{
     margin: 1rem 0;
 }
 
-.contact-info input{
+.contact-info input,.personal-info input,.personal-info select{
     width: 80%;
     padding: 0.6rem;
     border: 1px solid black;
+    border-radius: 5px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -126,4 +143,8 @@ input[type=number]::-webkit-outer-spin-button{
 .review-subcontainer div{
     margin: 0.6rem  0;
     text-align: start;
+}
+
+.activ-txt{
+    color: tomato;
 }
