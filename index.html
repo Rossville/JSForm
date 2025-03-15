@@ -14,14 +14,16 @@
       <div class="form-left-area">
         <ul class="list-container">
           <li class="flex">
-            <div class="circle-outlined">
+            <div class="circle-outlined ">
               <div class="circle-solid"></div>
+              <div class="line"></div>
             </div>
             <span><p class="highlight-txt activ-txt">Personal Info</p></span>
           </li>
           <li class="flex">
             <div class="circle-outlined">
               <div class="circle-solid unactive"></div>
+              <div class="line"></div>
             </div>
             <span><p class="highlight-txt">Contact Info</p></span>
           </li>
@@ -39,64 +41,71 @@
             <span class="material-symbols-outlined">chevron_left</span>
           </button>
         </div>
+        <div class="reviewheader unactive">
+          <h3 class="review-header">Review details</h3>
+        </div>
         <div class="sub-container">
           <form class="form flex-col">
             <div class="data-container personal-info">
               <div class="field-name">
                 <label for="name">
-                  <input type="text" placeholder="Name" />
+                  <input name="Name" type="text" />
+                  <div class="labelline">Name</div>
                 </label>
               </div>
               <div class="field-DOB">
                 <label for="date_of_birth">
-                  <input type="date" />
+                  <input name="Date" type="date" />
+                  <div class="labelline">Date of Birth</div>
                 </label>
               </div>
               <div class="field-gender">
                 <label for="gender">
                   <select aria-placeholder="Gender">
+                    <option value="" disabled selected>Gender</option>
                     <option value="male">male</option>
                     <option value="female">female</option>
                   </select>
+                  <div class="labelline">Gender</div>
                 </label>
               </div>
             </div>
             <div class="data-container contact-info unactive">
               <div class="field-ph-no">
                 <label for="ph-no">
-                  <input type="number" placeholder="Phone Number" />
+                  <input name="Phone number" type="number" placeholder="Phone Number" />
                 </label>
               </div>
               <div class="field-addr">
                 <label for="addr">
-                  <input type="text" placeholder="Address" />
+                  <input name="Address" type="text" placeholder="Address" />
                 </label>
               </div>
               <div class="field-emailAddr">
                 <label for="emailAddr">
-                  <input type="email" placeholder="Email" />
+                  <input name="Email" type="email" placeholder="Email" />
                 </label>
               </div>
             </div>
             <div class="data-container review-info unactive">
               <div class="review-subcontainer">
                 <div class="review-name">
-                  <p>Name :</p>
+                  <p class="user-review-data">Name :</p>
                 </div>
                 <div class="review-DOB">
-                  <p>Date of Birth :</p>
+                  <p class="user-review-data">Date of Birth :</p>
                 </div>
                 <div class="review-gender">
-                  <p>Gender :</p>
+                  <p class="user-review-data">Gender :</p>
                 </div>
                 <div class="review-phno">
-                  <p>Phone Number :</p>
+                  <p class="user-review-data">Phone Number :</p>
                 </div>
                 <div class="review-Addr">
-                  <p>Address :</p>
+                  <p class="user-review-data">Address :</p>
                 </div>
                 <div class="email-Addr">
-                  <p>Email :</p>
+                  <p class="user-review-data">Email :</p>
                 </div>
               </div>
             </div>
