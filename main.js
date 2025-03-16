@@ -9,10 +9,22 @@ var next_btn_container = document.getElementsByClassName('next-btn-container')[0
 var back_btn_container = document.getElementsByClassName('back-btn-container')[0];
 var highlight_txt = document.getElementsByClassName('highlight-txt');
 var labelline = document.getElementsByClassName('labelline');
-var NameInput = document.querySelector(".field-name input[type=\"text\"]");
+var NameInput = document.querySelector('.field-name input[type="text"]');
 var ReviewHeader = document.getElementsByClassName('reviewheader')[0];
 var DateInput = document.querySelector('.field-DOB input[type="date"]');
 var GenderInput = document.querySelector('.field-gender select');
+var UserReviewData = document.getElementsByClassName('user-review-data');
+var PhoneInput = document.querySelector('.field-ph-no input[type="number"]');
+var AddressInput = document.querySelector('.field-addr input[type="text"]');
+var EmailInput = document.querySelector('.field-emailAddr input[type="email"]');
+var userFormData = {
+    Name: "",
+    Date: "",
+    Gender: "",
+    Phone_number: "",
+    Address: "",
+    Email: ""
+};
 var current_page = 0; //default
 // remove placholder from the input date
 function buttonChanges(curr_page) {
@@ -64,8 +76,9 @@ next_btn.addEventListener('click', function () {
         data_container[current_page + 1].classList.remove('unactive');
         current_page++;
     }
+    // if next button is clicked and current_page == 2
     buttonChanges(current_page);
-    saveData();
+    saveData(current_page);
 });
 back_btn.addEventListener('click', function () {
     // moving to the previous page upon back button click.
@@ -97,23 +110,38 @@ var updateLinelabel = function (inputs) {
 NameInput.addEventListener('focus', function () { return updateLinelabel(NameInput); });
 NameInput.addEventListener('input', function () { return updateLinelabel(NameInput); });
 NameInput.addEventListener('blur', function () { return updateLinelabel(NameInput); });
-function saveData() {
+function saveData(curr_page) {
     //using local Storage to save the progress.
-    localStorage.setItem("userData", JSON.stringify({
-        Name: NameInput.value,
-        Date: DateInput.value,
-        Gender: GenderInput.value
-    }));
+    if (curr_page === 0) {
+        if (NameInput.value && DateInput.value && GenderInput.value) {
+            localStorage.setItem("PersonalData", JSON.stringify({
+                Name: NameInput.value,
+                Date: DateInput.value,
+                Gender: GenderInput.value
+            }));
+        }
+    }
+    if (curr_page === 1) {
+        console.log("Contact Info : ", PhoneInput.value, AddressInput.value, EmailInput.value);
+        if (PhoneInput.value !== "" && AddressInput.value !== "" && EmailInput.value !== "") {
+            localStorage.setItem("ContactData", JSON.stringify({
+                Phone: PhoneInput.value,
+                Address: AddressInput.value,
+                Email: EmailInput.value
+            }));
+            console.log("I'm running and alive !");
+        }
+    }
 }
 submit_btn.addEventListener('click', function () {
     //retrieve data from localStorage.
-    var storedData = JSON.parse(localStorage.getItem("userData") || "{}");
+    var storedData = JSON.parse(localStorage.getItem("PersonalData") || "{}");
     console.log(storedData.Name);
 });
 document.addEventListener('DOMContentLoaded', function () {
     //check if there are any data store in localStorage.
-    var storedData = JSON.parse(localStorage.getItem("userData") || "{}");
-    if (storedData.Name !== "" || storedData.Date !== "" || storedData.Gender !== "") {
+    var storedData = JSON.parse(localStorage.getItem("PersonalData") || "{}");
+    if (storedData.Name && storedData.Date && storedData.Gender) {
         NameInput.value = storedData.Name;
         DateInput.value = storedData.Date;
         GenderInput.value = storedData.Gender;

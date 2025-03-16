@@ -9,10 +9,32 @@ const next_btn_container = document.getElementsByClassName('next-btn-container')
 const back_btn_container = document.getElementsByClassName('back-btn-container')[0]  as HTMLElement;
 const highlight_txt = document.getElementsByClassName('highlight-txt') as HTMLCollectionOf<HTMLElement>;
 const labelline = document.getElementsByClassName('labelline') as HTMLCollectionOf<HTMLElement>;
-const NameInput = document.querySelector(".field-name input[type=\"text\"]") as HTMLInputElement;
+const NameInput = document.querySelector('.field-name input[type="text"]') as HTMLInputElement;
 const ReviewHeader = document.getElementsByClassName('reviewheader')[0] as HTMLElement;
 const DateInput = document.querySelector('.field-DOB input[type="date"]') as HTMLInputElement;
 const GenderInput = document.querySelector('.field-gender select') as HTMLSelectElement;
+const UserReviewData = document.getElementsByClassName('user-review-data') as HTMLCollectionOf<HTMLElement>;
+const PhoneInput = document.querySelector('.field-ph-no input[type="number"]') as HTMLInputElement;
+const AddressInput = document.querySelector('.field-addr input[type="text"]') as HTMLInputElement;
+const EmailInput = document.querySelector('.field-emailAddr input[type="email"]') as HTMLInputElement;
+
+interface userFormData{
+    Name: String,
+    Date: String,
+    Gender: String,
+    Phone_number: String,
+    Address: String,
+    Email: String
+}
+
+const userFormData: userFormData = {
+    Name: "",
+    Date: "",
+    Gender: "",
+    Phone_number: "",
+    Address: "",
+    Email: "" 
+}
 
 let current_page: number = 0; //default
 
@@ -70,8 +92,9 @@ next_btn.addEventListener('click',function(){
         data_container[current_page+1].classList.remove('unactive');
         current_page++;
     }
+    // if next button is clicked and current_page == 2
     buttonChanges(current_page);
-    saveData();
+    saveData(current_page);
 })
 
 back_btn.addEventListener('click',function(){
@@ -110,28 +133,46 @@ NameInput.addEventListener('focus',() => updateLinelabel(NameInput));
 NameInput.addEventListener('input',() => updateLinelabel(NameInput));
 NameInput.addEventListener('blur',() => updateLinelabel(NameInput));
 
-function saveData(){
+function saveData(curr_page: number){
     //using local Storage to save the progress.
-    localStorage.setItem(
-        "userData",
-        JSON.stringify({
-            Name: NameInput.value,
-            Date: DateInput.value,
-            Gender: GenderInput.value
-        })
-    )
+    if(curr_page === 0){
+        if(NameInput.value && DateInput.value && GenderInput.value){
+            localStorage.setItem(
+                "PersonalData",
+                JSON.stringify({
+                    Name: NameInput.value,
+                    Date: DateInput.value,
+                    Gender: GenderInput.value
+                })
+            )
+        }
+    }
+    if(curr_page === 1){
+        console.log("Contact Info : ",PhoneInput.value, AddressInput.value, EmailInput.value);
+        if(PhoneInput.value !== "" && AddressInput.value !== "" && EmailInput.value !== ""){
+            localStorage.setItem(
+                "ContactData",
+                JSON.stringify({
+                    Phone: PhoneInput.value,
+                    Address: AddressInput.value,
+                    Email: EmailInput.value
+                })
+            )
+            console.log("I'm running and alive !")
+        }
+    }
 }
 
 submit_btn.addEventListener('click',function(){
     //retrieve data from localStorage.
-    const storedData = JSON.parse(localStorage.getItem("userData") || "{}");
+    const storedData = JSON.parse(localStorage.getItem("PersonalData") || "{}");
     console.log(storedData.Name);
 })
 
 document.addEventListener('DOMContentLoaded',function(){
     //check if there are any data store in localStorage.
-    const storedData = JSON.parse(localStorage.getItem("userData") || "{}");
-    if(storedData.Name !== "" || storedData.Date !== "" || storedData.Gender !== ""){
+    const storedData = JSON.parse(localStorage.getItem("PersonalData") || "{}");
+    if(storedData.Name && storedData.Date && storedData.Gender){
         NameInput.value = storedData.Name;
         DateInput.value = storedData.Date;
         GenderInput.value = storedData.Gender;
